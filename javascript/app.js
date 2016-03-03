@@ -22,10 +22,13 @@ var pageBuilder = {
 	},
 	afterQuestionView : function() {
 		var $answer = $('<div class="answerContainer">');
-		($answer).html('<h1>The answer was ' + allQuestions[userStats.questionNumber].correct() + '</h1>');
-		(this.$wrapper).empty();
-		(this.$wrapper).append($answer);
-
+		if (userStats.choice == allQuestions[userStats.questionNumber].correct()) {
+			($answer).html('<h1>Correct! The answer was ' + allQuestions[userStats.questionNumber].correct() + '</h1>');
+		} else{
+			($answer).html('<h1>Wrong! The answer was ' + allQuestions[userStats.questionNumber].correct() + '</h1>');
+		}	
+			(this.$wrapper).empty();
+			(this.$wrapper).append($answer);
 	},
 };
 
@@ -52,7 +55,21 @@ var userStats = {
 };
 
 
-
+var timer = {
+	time : 0,
+	prepareTimer : {
+		start : function() {
+			timer.time = 5;
+			setInterval(timer.prepareTimer.count, 1000)
+		},
+		count : function() {
+			timer.time--;
+			if (timer.time == 0) {
+				pageBuilder.questionView();
+			}
+		}
+	}
+}
 
 
 
