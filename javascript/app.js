@@ -2,10 +2,12 @@ var pageBuilder = {
 	$wrapper : $('#wrapper'),
 	$userPoints : $('#userPoints'),
 	prepareView : function() {
+		(pageBuilder.$userPoints).html('<h3>' + userStats.totalPoints + '</h3>');
+
 		var $prepare = $('<div id="prepareContainer">');
-		$($prepare).html('<h1>Prepare for Question ' + userStats.questionNumber +'!</h1>');
-		(this.$wrapper).empty();
-		(this.$wrapper).append($prepare);
+		$($prepare).html('<h1>Question ' + userStats.questionNumber +'!</h1>');
+		(pageBuilder.$wrapper).empty();
+		(pageBuilder.$wrapper).append($prepare);
 		timer.prepareTimer.start();
 		allQuestions[0].newQuestion();
 	},
@@ -27,14 +29,11 @@ var pageBuilder = {
 
 			($choiceList).append($possibleAnswer);
 		};
-		
-		
-
 		userStats.choiceListener();
 		timer.questionTimer.hold();
 	},
 	afterQuestionView : function() {
-		var $answer = $('<div class="answerContainer">');
+		var $answer = $('<div id="answerContainer">');
 		if (userStats.choice == allQuestions[userStats.questionIndex].correct()) {
 			($answer).html('<h1>Correct! The answer was ' + allQuestions[userStats.questionIndex].correct() + '!</h1><h2>You earned ' + userStats.roundPoints + ' points!</h2>');
 		} else{
@@ -42,12 +41,19 @@ var pageBuilder = {
 		};	
 		var $funFact = $('<div class="factContainer">');
 		($funFact).html('<h2>' + allQuestions[userStats.questionIndex].fact + '</h2>');
-		(pageBuilder.$userPoints).html(userStats.totalPoints);
+		(pageBuilder.$userPoints).html('<h3>' + userStats.totalPoints + '</h3>');
 		(this.$wrapper).empty();
 		(this.$wrapper).append($answer);
 		(this.$wrapper).append($funFact);
 		timer.afterQuestionTimer.start();
 	},
+	gameOverView : function() {
+		userStats.reset();
+		var $gameOver = $('<div id="gameOver"><button class="startGame" id="resetGame">New Game</button></div>');
+		(this.$wrapper).empty();
+		(this.$wrapper).append($gameOver);
+		$('.startGame').on('click', pageBuilder.prepareView)
+	}
 };
 
 var allQuestions = [
@@ -178,6 +184,13 @@ var userStats = {
 		}
 		userStats.questionNumber++;
 		userStats.wrong++;
+	},
+	reset : function() {
+		this.questionNumber = 1;
+		this.totalPoints = 0;
+		this.choice = '';
+		allQuestions[0].usedQuestions = [];
+
 	}
 };
 
@@ -202,14 +215,14 @@ var timer = {
 		hold : function() {
 			timer.time = 1000;
 			setTimeout(timer.questionTimer.start, 4500);
-			(timer.$pointsTimer).html('<h2>' + timer.time + '</h2>');
+			(timer.$pointsTimer).html('<h3>' + timer.time + '</h3>');
 		},
 		start : function() {
 			timeLeft = setInterval(timer.questionTimer.count, 12);
 		},
 		count : function() {
 			timer.time--;
-			(timer.$pointsTimer).html('<h2>' + timer.time + '</h2>');
+			(timer.$pointsTimer).html('<h3>' + timer.time + '</h3>');
 			if (timer.time == 750) {
 				var $hintDiv = $('<div class="hint">');
 				($hintDiv).html(allQuestions[userStats.questionIndex].hints[0]);
@@ -231,19 +244,25 @@ var timer = {
 	},
 	afterQuestionTimer : {
 		start : function() {
-			timer.time = 5;
+			timer.time = 9;
 			timeLeft = setInterval(timer.afterQuestionTimer.count, 1000);
 		},
 		count : function() {
 			timer.time--;
 			if (timer.time == 0) {
-				clearInterval(timeLeft);
-				pageBuilder.prepareView();
+					clearInterval(timeLeft);
+				if (userStats.questionNumber <= 10) {
+					pageBuilder.prepareView();
+				} else {
+					pageBuilder.gameOverView();
+
+				}
 			}
 		}
 	}
 }
 
+$('.startGame').on('click', pageBuilder.prepareView)
 
 
 

@@ -1,0 +1,122 @@
+body, html {
+	height: 100%;
+	font-family: 'Raleway', sans-serif;
+}
+body {
+	background-image: url('../images/futuristicBackground.jpg');
+	background-size: cover;
+}
+
+#content {
+	margin:0 auto;
+	color: white;
+	height: 100%;
+	min-width: 400px;
+	font-family: 'Raleway', sans-serif;
+}
+
+/*-----SIDEBAR STYLING-----*/
+#sideBar {
+	background-color: rgba(0,0,0,.5);
+	height: 100%;
+	padding:0px;
+	border-right: 5px solid black;
+}
+
+#timerContainer, #userContainer {
+	background-color: rgba(0,0,0,.4);
+	width: 100%;
+	text-align: center;
+	margin-top: 20px;
+	height: 150px;
+}
+
+#timerContainer h2, #userContainer h2{
+	font-size: 3em;
+
+
+}
+
+/*-----GAME START SCREEN STYLING-----*/
+#gameStart {
+	text-align: center;
+}
+
+#gameStart h1 {
+	background-color: rgba(0,0,0,.6);
+	font-size: 5em;
+	display: inline-block;
+	padding: 25px 100px;
+}
+
+#rules {
+	background-color: rgba(0,0,0,.6);
+	max-width: 800px;
+	margin: 0 auto
+}
+
+#gameStart h2 {
+ padding: 20px 0px;
+}
+
+#gameStart p {
+	font-size: 1.5em;
+	padding:30px;
+}
+
+.startGame {
+	color: black;
+	padding: 10px 20px;
+	font-size: 3em;
+	background-color: rgba(255,255,255,.6);
+	margin-top: 20px;
+}
+
+/*-----PREPARE SCREEN-----*/
+#prepareContainer {
+	text-align: center;
+}
+
+#prepareContainer h1 {
+	font-size: 7em;
+	margin-top: 260px
+}
+
+#userContainer {
+	border: 1px solid black;
+}
+
+#timerContainer {
+	border: 1px solid black;	
+}
+
+#prepareContainer {
+
+}
+
+#questionContainer {
+
+}
+
+#hintsContainer {
+
+}
+
+#choicesContainer {
+
+}
+
+#choiceList {
+
+}
+
+.choice {
+
+}
+
+label > input {
+	display: none;
+}
+.clearfix {
+	clear: both;
+}
