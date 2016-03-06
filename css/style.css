@@ -23,20 +23,26 @@ body {
 	border-right: 5px solid black;
 }
 
-#timerContainer, #userContainer {
+#timerContainer, #userContainer, #correctContainer, #wrongContainer {
 	background-color: rgba(0,0,0,.4);
 	width: 100%;
 	text-align: center;
 	margin-top: 20px;
-	height: 150px;
+	height: 120px;
 }
 
-#timerContainer h2, #userContainer h2{
+#timerContainer h2, #userContainer h2, #correctContainer h2, #wrongContainer h2{
 	font-size: 3em;
-
+	padding-top:15px;
+	margin-bottom: 5px;
 
 }
 
+#timerContainer h3, #userContainer h3, #correctContainer h3, #wrongContainer h3{
+	font-size: 2.3em;
+	margin-top:0px;
+
+}
 /*-----GAME START SCREEN STYLING-----*/
 #gameStart {
 	text-align: center;
@@ -52,16 +58,16 @@ body {
 #rules {
 	background-color: rgba(0,0,0,.6);
 	max-width: 800px;
-	margin: 0 auto
+	margin: 0 auto;
+	padding:30px;
 }
 
 #gameStart h2 {
- padding: 20px 0px;
+	margin-top: 0px;
 }
 
 #gameStart p {
 	font-size: 1.5em;
-	padding:30px;
 }
 
 .startGame {
@@ -72,7 +78,7 @@ body {
 	margin-top: 20px;
 }
 
-/*-----PREPARE SCREEN-----*/
+/*-----PREPARE SCREEN STYLING-----*/
 #prepareContainer {
 	text-align: center;
 }
@@ -82,41 +88,75 @@ body {
 	margin-top: 260px
 }
 
-#userContainer {
-	border: 1px solid black;
-}
-
-#timerContainer {
-	border: 1px solid black;	
-}
-
-#prepareContainer {
-
-}
-
-#questionContainer {
-
+/*-----QUESTION SCREEN STYLING-----*/
+#questionContainer, #answerContainer, #factContainer {
+	text-align: center;
+	background-color: rgba(0,0,0,.6);
+	max-width: 800px;
+	padding:20px;
+	margin:10px auto;
 }
 
 #hintsContainer {
+	width: 80%;
+	margin:0 auto;
+}
 
+.hint {
+	text-align: center;
+	font-size: 1.2em;	
+	width: 28%;
+	margin:0px 2%;
+	display: inline-block;
+	padding:15px 0px;
+}
+
+.positiveHint {
+	background-color: rgba(0,75,0,.6);
+}
+
+.negativeHint {
+	background-color: rgba(75,0,0,.6);
 }
 
 #choicesContainer {
-
+	position: absolute;
+	width: 100%;
+	top: 300px;
+	text-align: center;
+	margin: 0 auto;
 }
 
 #choiceList {
 
 }
 
-.choice {
+.choice h2 {
+	background-color: rgba(0,0,0,.4);
+	width: 600px;
+	padding:15px 0px;
+	margin:0px;
+	transition: background-color .2s, width .5s;
+}
 
+.choice:hover h2{
+	background-color: rgba(0,0,0,.65);
+	width: 700px
 }
 
 label > input {
 	display: none;
 }
+
+input[type="radio"]:checked + h2{
+	background-color: rgba(0,120,0,.7);
+}
+
 .clearfix {
 	clear: both;
 }
+
+
+
+
+
