@@ -71,11 +71,21 @@ body {
 }
 
 .startGame {
-	color: black;
-	padding: 10px 20px;
+	color: white;
+	width: 200px;
+	height: 200px;
+	border-radius: 100px;
 	font-size: 3em;
-	background-color: rgba(255,255,255,.6);
+	background-color: rgba(0,50,0,.6);
 	margin-top: 20px;
+	letter-spacing: 1px;
+	transition: transform 300s, letter-spacing 15s;
+}
+
+.startGame:hover {
+	background-color: rgba(0,100,0,.7);
+	transform: rotate(150000deg);
+	letter-spacing: 20px;
 }
 
 /*-----PREPARE SCREEN STYLING-----*/
@@ -91,10 +101,13 @@ body {
 /*-----QUESTION SCREEN STYLING-----*/
 #questionContainer, #answerContainer, #factContainer {
 	text-align: center;
-	background-color: rgba(0,0,0,.6);
 	max-width: 800px;
 	padding:20px;
 	margin:10px auto;
+}
+
+#questionContainer, #factContainer {
+background-color: rgba(0,0,0,.6);
 }
 
 #hintsContainer {
@@ -111,11 +124,11 @@ body {
 	padding:15px 0px;
 }
 
-.positiveHint {
+.positive {
 	background-color: rgba(0,75,0,.6);
 }
 
-.negativeHint {
+.negative {
 	background-color: rgba(75,0,0,.6);
 }
 
@@ -150,6 +163,11 @@ label > input {
 
 input[type="radio"]:checked + h2{
 	background-color: rgba(0,120,0,.7);
+}
+
+#gameOver {
+	text-align: center;
+	margin-top: 150px;
 }
 
 .clearfix {
