@@ -221,7 +221,7 @@ var allQuestions = [
 		correct : function() {
 			return this.answers[2];
 		},
-		fact : 'Movie legend Clint Eastwood celebrates his 80th birthday on Monday, May 31 with an iconic career spanning more than five decades.',
+		fact : 'King Kong is a fictional giant movie monster, resembling a colossal gorilla, that has appeared in various media since 1933.',
 	},
 	seventeen = {
 		question: "A group of lions is called a 'pride'. What word would be used to describe a group of crows?",
@@ -230,7 +230,7 @@ var allQuestions = [
 		correct : function() {
 			return this.answers[2];
 		},
-		fact : 'the inspiration for the term is a mystery, lost since the 15th century. "Murder” may perhaps allude to the crow\'s traditional association with violent death, or to its harsh and raucous cry.',
+		fact : 'The inspiration for the term is a mystery, lost since the 15th century. "Murder" may perhaps allude to the crow\'s traditional association with violent death, or to its harsh and raucous cry.',
 	},
 	eighteen = {
 		question: "How many of the 2,224 people aboard the S.S. Titanic survived its sinking in 1912?",
@@ -248,7 +248,7 @@ var allQuestions = [
 		correct : function() {
 			return this.answers[0];
 		},
-		fact : 'The Titanic originally was designed to carry 64 lifeboats. To save from cluttering decks, the ship ended up carrying 20 on her maiden voyage.',
+		fact : 'BMW didn’t actually start out as a car manufacturer. They began making aeroplane engines, motorbikes, and even brakes for trains.',
 	},
 	twenty = {
 		question: "In computer software, how many bits are in a kilobyte?",
