@@ -1,7 +1,9 @@
+//Global variables to access HTML divs
 $wrong = $('#userWrong');
 $correct = $('#userCorrect');
 $wrapper = $('#wrapper');
 
+//This object holds the different page view html. Keys are named appropriately.
 var pageBuilder = {
 	$userPoints : $('#userPoints'),
 	prepareView : function() {
@@ -64,7 +66,7 @@ var pageBuilder = {
 		$('.startGame').on('click', pageBuilder.prepareView)
 	}
 };
-
+//This array holds all of the questions objects, plus an object with the task of choosing a random question.
 var allQuestions = [
 	questionDecide = {
 		usedQuestions : [],
@@ -80,7 +82,7 @@ var allQuestions = [
 	},
 	one = {
 		question: "Where was former POTUS Bill Clinton Born?",
-		hints : ['Not president Obama', 'can\'t be Miss Clinton', 'Kinda like Kansas'],
+		hints : ['Not president Obama', 'Can\'t be Miss Clinton', 'Kinda like Kansas'],
 		answers : ['Arkansas', 'Mississsippi', 'Alabama', 'Lousianna'],
 		correct : function() {
 			return this.answers[0];
@@ -108,7 +110,7 @@ var allQuestions = [
 	},
 	four = {
 		question: "Where is Mount Rushmore located?",
-		hints : ['tah-tah to this one', 'Doesn\'t need a wash', 'Southwest Airlines'],
+		hints : ['Tah-tah to this one', 'Doesn\'t need a wash', 'Southwest Airlines'],
 		answers : ['Nevada', 'Washington', 'Utah', 'South Dakota'],
 		correct : function() {
 			return this.answers[3];
@@ -135,7 +137,7 @@ var allQuestions = [
 	},
 	seven = {
 		question: "What is the most common U.S. city name?",
-		hints : ['un-ville-ified', 'Not Clint Eastwood', 'A field of flowers'],
+		hints : ['Un-ville-ified', 'Not Clint Eastwood', 'A field of flowers'],
 		answers : ['Greenville', 'Washington', 'Clinton', 'Springfield'],
 		correct : function() {
 			return this.answers[3];
@@ -158,7 +160,7 @@ var allQuestions = [
 		correct : function() {
 			return this.answers[1];
 		},
-		fact : 'There are also Uticas located in Mississippi, Pennsylvania, Ohio, Indiana, Illinois, Michigan, Minnesota, Montana, South Dakota, Nebraska, Iowa, Kansas, Missouri, Oklahoma, Kentucky, Maryland and Alaska. All are named after Utica, NY'
+		fact : 'There are also Uticas located in Mississippi, Pennsylvania, Ohio, Indiana, Illinois, Michigan, Minnesota, Montana, South Dakota, Nebraska, Iowa, Kansas, Missouri, Oklahoma, Kentucky, Maryland and Alaska. All are named after Utica, NY.'
 	},
 	ten = {
 		question: "Which U.S. state produces the most apples?",
@@ -189,7 +191,7 @@ var allQuestions = [
 	},
 	thirteen = {
 		question: "Which of the following heavenly bodies have never had a spacecraft landed on it?",
-		hints : ['Howl at the', 'Not a Martian', '"Boys are stupider"'],
+		hints : ['Howl at', 'Not a Martian', '"Boys are stupider"'],
 		answers : ['Venus', 'Mars', 'The Moon', 'Jupiter'],
 		correct : function() {
 			return this.answers[3];
@@ -203,7 +205,7 @@ var allQuestions = [
 		correct : function() {
 			return this.answers[0];
 		},
-		fact : 'The Star Spangled Banner (the flag, not the song) was sewn in Baltimore by Mary Young Pickersgill',
+		fact : 'The Star Spangled Banner (the flag, not the song) was sewn in Baltimore by Mary Young Pickersgill.',
 	},
 	fifteen = {
 		question: "Clint Eastwood gave us the immortal line, 'Go ahead... make my day', in what film?",
@@ -248,7 +250,7 @@ var allQuestions = [
 		correct : function() {
 			return this.answers[0];
 		},
-		fact : 'BMW didn’t actually start out as a car manufacturer. They began making aeroplane engines, motorbikes, and even brakes for trains.',
+		fact : 'BMW didn\'t actually start out as a car manufacturer. They began making aeroplane engines, motorbikes, and even brakes for trains.',
 	},
 	twenty = {
 		question: "In computer software, how many bits are in a kilobyte?",
@@ -260,7 +262,7 @@ var allQuestions = [
 		fact : 'There are 8 bits in one byte, and 1024 bytes in a kilobyte. The reason for this is because computers are based on the binary system. That means hard drives and memory are measured in powers of 2.',
 	},
 ];
-
+//This object holds all the user related information.
 var userStats = {
 	correct : 0,
 	wrong : 0,
@@ -295,7 +297,7 @@ var userStats = {
 
 	}
 };
-
+//Everything in this object relates to time holds and intervals.
 var timer = {
 	$pointsTimer : $('#pointsTimer'),
 	time : 0,
@@ -363,7 +365,7 @@ var timer = {
 		}
 	}
 }
-
+//Begins the game on clicking the start button
 $('.startGame').on('click', pageBuilder.prepareView)
 
 
